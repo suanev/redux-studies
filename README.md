@@ -1,8 +1,9 @@
 # Entendendo Redux
 
 - store - "caixa preta" com todos os dados da sua aplicação
-- state - são os dados da suaaplicação
+- state - são os dados da sua aplicação
 - reducer - modifica seus dados de acordo com a action
+- action - sempre precisa de um type para funcionar, alem disso, uma variável chamada payload com tudo que é necessário é setada.
 
 ## Pure Functions
 - dado um conjunto de parâmetros, uma função pura sempre retorna a mesma coisa. Funções que retornam algo esperado <br> são consideradas puras. <br>
@@ -107,3 +108,20 @@ import { combineReducers, createStore } from 'redux'
 const reducer = combineReducers({ visibilityFilter, todos })
 const store = createStore(reducer)
 ```
+
+## High Order Components (HOC)
+Componentes de alta ordem: passamos um componente, e ele nos devolve ele melhorado.
+
+Exemplo de uso:
+``` const SuperComponente = meuHOC(Componente) ```
+
+- Podemos usar o HOC ```connect```, que pode ser responsável por conectar um componente ao store, permitindo que o componente possa manipular, injetar o que quisermos em nossas props.
+
+### connect
+> utiliza o metodo de currying
+```connect(mapStateToProps, mapDispatachToProps)(Component)```
+
+- mapStateToProps - state -> props
+- mapDispatachToProps - dispatch -> props
+
+> Ambos parâmetros podem ser passados tanto como funções, como objetos.
