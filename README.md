@@ -53,6 +53,7 @@ console.log(store.getState())
 
 ### State is read-only
 - A única forma de mudar o state é emitir uma action, um objeto que descreve o que acontece. <br>
+- O dispatch é o responsável por enviar/despachar a action para o store, ou seja, é ele quem guarda as actions por lá.
 ```
 store.dispatch({
   type: 'COMPLETE_TODO',
